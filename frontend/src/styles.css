@@ -1,0 +1,104 @@
+:root {
+  --bg: #f6f3ec;
+  --panel: #fffdf8;
+  --ink: #2b2620;
+  --muted: #7a7165;
+  --line: #e3dccb;
+  --accent: #8a5a28;
+  --accent-soft: #f1e4d0;
+  --open: #2e7d4f;
+  --closed: #8a6d1f;
+  --merged: #8c3b34;
+  --danger: #a8332b;
+  font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); }
+a { color: var(--accent); }
+
+.layout { display: flex; min-height: 100vh; }
+.sidebar {
+  width: 230px; background: #2f2a23; color: #efe7d8; padding: 20px 16px;
+  display: flex; flex-direction: column; gap: 4px;
+}
+.sidebar h1 { font-size: 16px; margin: 0 0 18px; line-height: 1.5; }
+.sidebar a { color: #d8cbb4; text-decoration: none; padding: 8px 10px; border-radius: 6px; font-size: 14px; }
+.sidebar a:hover, .sidebar a.active { background: #4a4135; color: #fff; }
+.sidebar .actor { margin-top: auto; font-size: 12px; color: #a99e89; }
+.sidebar input {
+  width: 100%; margin-top: 6px; padding: 6px 8px; border-radius: 6px;
+  border: 1px solid #5c5346; background: #221e19; color: #efe7d8;
+}
+
+main { flex: 1; padding: 24px 28px; max-width: 1200px; }
+h2 { margin-top: 0; }
+.grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); }
+
+.card {
+  background: var(--panel); border: 1px solid var(--line); border-radius: 10px;
+  padding: 16px 18px; box-shadow: 0 1px 2px rgba(60, 45, 20, 0.05);
+}
+.card h3 { margin: 0 0 6px; font-size: 16px; }
+.muted { color: var(--muted); font-size: 13px; }
+
+button, .btn {
+  background: var(--accent); color: #fff; border: none; border-radius: 6px;
+  padding: 7px 14px; font-size: 13px; cursor: pointer;
+}
+button.secondary { background: #c9bca4; color: #2b2620; }
+button.danger { background: var(--danger); }
+button:disabled { opacity: .5; cursor: not-allowed; }
+
+input, select, textarea {
+  font: inherit; padding: 7px 9px; border: 1px solid var(--line); border-radius: 6px;
+  background: #fff; color: var(--ink); width: 100%;
+}
+label { font-size: 12px; color: var(--muted); display: block; margin: 8px 0 3px; }
+.form-row { display: flex; gap: 10px; flex-wrap: wrap; }
+.form-row > div { flex: 1; min-width: 140px; }
+
+.badge {
+  display: inline-block; font-size: 11px; padding: 2px 8px; border-radius: 999px;
+  color: #fff; margin-left: 6px; vertical-align: middle;
+}
+.badge.open { background: var(--open); }
+.badge.closed { background: var(--closed); }
+.badge.merged { background: var(--merged); }
+
+.tabs { display: flex; gap: 4px; border-bottom: 2px solid var(--line); margin-bottom: 16px; }
+.tabs button {
+  background: none; color: var(--muted); border-radius: 0; padding: 8px 16px;
+  border-bottom: 2px solid transparent; margin-bottom: -2px;
+}
+.tabs button.active { color: var(--accent); border-bottom-color: var(--accent); font-weight: 600; }
+
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); }
+th { color: var(--muted); font-weight: 600; }
+
+.tree-node { margin: 2px 0; }
+.tree-row {
+  display: flex; align-items: center; gap: 8px; padding: 6px 8px; border-radius: 6px;
+}
+.tree-row:hover { background: var(--accent-soft); }
+.tree-row.selected { background: var(--accent-soft); outline: 1px solid var(--accent); }
+.edge { color: var(--muted); }
+
+.error {
+  background: #f7e2df; border: 1px solid #dca9a2; color: #7a241d;
+  padding: 10px 14px; border-radius: 8px; margin: 10px 0; font-size: 13px; white-space: pre-wrap;
+}
+.success {
+  background: #e2f1e7; border: 1px solid #a5cfb4; color: #1d5c36;
+  padding: 10px 14px; border-radius: 8px; margin: 10px 0; font-size: 13px;
+}
+.revision { border-left: 3px solid var(--accent); padding: 6px 12px; margin: 8px 0; background: #fbf6ec; border-radius: 0 6px 6px 0; }
+.dialog-backdrop {
+  position: fixed; inset: 0; background: rgba(30,25,18,.45); display: flex;
+  align-items: center; justify-content: center; z-index: 1000;
+}
+.dialog { background: var(--panel); border-radius: 10px; padding: 22px; width: 480px; max-width: 92vw; }
+.map { height: 420px; border-radius: 10px; overflow: hidden; border: 1px solid var(--line); }
+code, pre { font-family: "JetBrains Mono", ui-monospace, monospace; }
+pre { background: #2b2620; color: #ece3d2; padding: 12px; border-radius: 8px; overflow:auto; font-size: 12px; }
